@@ -41,7 +41,6 @@ var promptGenerator = function() {
         window.alert("Your password WILL contain lowercase characters.");
         //Construct the Array. Prototype allows to add new properties to an existing object constructor (array). Push allows to append this new property. Apply makes it a function.
         Array.prototype.push.apply(charContainer, lowercaseArr);
-        console.log(charContainer);
       } else {
         window.alert("Your password WILL NOT contain lowercase characters.");
       };
@@ -49,7 +48,6 @@ var promptGenerator = function() {
       if (confirmUppercase) {
         window.alert("Your password WILL contain UPPERCASE characters.");
         Array.prototype.push.apply(charContainer, uppercaseArr);
-        console.log(charContainer);
       } else {
         window.alert("Your password WILL NOT contain UPPERCASE characters.");
       };
@@ -57,7 +55,6 @@ var promptGenerator = function() {
       if (confirmNumeric) {
         window.alert("Your password WILL contain numeric characters.");
         Array.prototype.push.apply(charContainer, numericArr);
-        console.log(charContainer);
       } else {
         window.alert("Your password WILL NOT contain numeric characters.");
       };
@@ -65,59 +62,22 @@ var promptGenerator = function() {
       if (confirmSpecial) {
         window.alert("Your password WILL contain special characters.");
         Array.prototype.push.apply(charContainer, specialArr);
-        console.log(charContainer);
       } else {
         window.alert("Your password WILL NOT contain special characters.");
       };
+      console.log(charContainer);
+
       // restart process if all for character options have been denied
       if (!confirmLowercase && !confirmUppercase && !confirmNumeric && !confirmSpecial) {
         window.alert("You must include at least one (1) type of character in your password. Try again.")
         return promptGenerator();
       // There might be a way to make this a loop in the future
-      // 4 options are confirmed
-      } else if (confirmLowercase && confirmUppercase && confirmNumeric && confirmSpecial) {
-        window.alert("Your password will be " + passwordLength + " characters long. It will include lowercase, UPPERCASE, numeric, and special characters.");
-      // 3 options are confirmed
-      } else if (confirmLowercase && confirmUppercase && confirmNumeric && !confirmSpecial) {
-        window.alert("Your password will be " + passwordLength + " characters long. It will include lowercase, UPPERCASE, and numeric characters.");
-      } else if (confirmLowercase && confirmUppercase && !confirmNumeric && confirmSpecial) {
-        window.alert("Your password will be " + passwordLength + " characters long. It will include lowercase, UPPERCASE, and special characters.");
-      } else if (confirmLowercase && !confirmUppercase && confirmNumeric && confirmSpecial) {
-        window.alert("Your password will be " + passwordLength + " characters long. It will include lowercase, numeric, and special characters.");
-      } else if (!confirmLowercase && confirmUppercase && confirmNumeric && confirmSpecial) {
-        window.alert("Your password will be " + passwordLength + " characters long. It will include UPPERCASE, numeric, and special characters."); 
-      // 2 options are confirmed     
-      } else if (confirmLowercase && confirmUppercase && !confirmNumeric && !confirmSpecial) {
-        window.alert("Your password will be " + passwordLength + " characters long. It will include lowercase and UPPERCASE characters.");
-      } else if (confirmLowercase && !confirmUppercase && confirmNumeric && !confirmSpecial) {
-        window.alert("Your password will be " + passwordLength + " characters long. It will include lowercase and numeric characters.");
-      } else if (confirmLowercase && !confirmUppercase && !confirmNumeric && confirmSpecial) {
-        window.alert("Your password will be " + passwordLength + " characters long. It will include lowercase and special characters.");
-      } else if (!confirmLowercase && confirmUppercase && confirmNumeric && !confirmSpecial) {
-        window.alert("Your password will be " + passwordLength + " characters long. It will include UPPERCASE and numeric characters.");
-      } else if (!confirmLowercase && confirmUppercase && !confirmNumeric && confirmSpecial) {
-        window.alert("Your password will be " + passwordLength + " characters long. It will include UPPERCASE and special characters.");
-      } else if (!confirmLowercase && !confirmUppercase && confirmNumeric && confirmSpecial) {
-        window.alert("Your password will be " + passwordLength + " characters long. It will include numeric and special characters.");
-      // 1 option is selected
-      } else if (confirmLowercase && !confirmUppercase && !confirmNumeric && !confirmSpecial) {
-        window.alert("Your password will be " + passwordLength + " characters long. It will include lowercase characters.");
-      } else if (!confirmLowercase && confirmUppercase && !confirmNumeric && !confirmSpecial) {
-        window.alert("Your password will be " + passwordLength + " characters long. It will include UPPERCASE characters.");
-      } else if (!confirmLowercase && !confirmUppercase && confirmNumeric && !confirmSpecial) {
-        window.alert("Your password will be " + passwordLength + " characters long. It will include numeric characters.");
-      } else if (confirmLowercase && !confirmUppercase && !confirmNumeric && confirmSpecial) {
-        window.alert("Your password will be " + passwordLength + " characters long. It will include special characters.");
+      } else {
+        window.alert("Your password will be " + passwordLength + " and will contain some of the next characters: " + charContainer.join("") + ".");
       };
-
-
-      
-
-};
+    };
  
-
-
-
+    
 // Connect HTML button with JS and 
 document.querySelector("#generate").addEventListener('click', promptGenerator);
 
