@@ -11,6 +11,9 @@ var numericArr = numeric.split("");
 var special = "~!@#$%^&*_-+=`|\(){}[]:;'<>,.?/";
 var specialArr = special.split("");
 
+// Connect HTML button with JS and 
+document.querySelector("#generate").addEventListener('click', promptGenerator);
+
 // Main function
 var promptGenerator = function() {	
   // Define password length	
@@ -73,37 +76,31 @@ var promptGenerator = function() {
         return promptGenerator();
       // There might be a way to make this a loop in the future
       } else {
+      // .join reverses the effects of the method split - it will give the user one singular string value.
         window.alert("Your password will be " + passwordLength + " and will contain some of the next characters: " + charContainer.join("") + ".");
       };
+
+    // Calculate password with a for loop that is repeated as many times as characters are needed for the password.
+    // generatePassword should be a string
+    var generatePassword = "";
+    for (var i = 0; i < passwordLength; i++) {
+      // Math random generates a random number in the range of 0 to less than 1. 
+      // That number is multiplied by the length of the array
+      // Math floor rounds up that number to a whole number which becomes variable random
+      var random = Math.floor(Math.random()*charContainer.length);
+      generatePassword += charContainer[random];
+      console.log(generatePassword);
     };
  
-    
-// Connect HTML button with JS and 
-document.querySelector("#generate").addEventListener('click', promptGenerator);
-
-// Calculate password
-
-// for loop
-for (var i = 0; i < passwordLength; i++) {
-  // a random variable is generated as many times as characters are needed
-  // math.random() * passwordLength
-}
-
-
-// function writePassword
-
-// Get references to the #generate element
 
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
-
   passwordText.value = password;
-
+}	
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// Connect HTML button with JS and 
+document.querySelector("#generate").addEventListener('click', promptGenerator);
