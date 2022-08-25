@@ -18,7 +18,7 @@ var promptGenerator = function() {
       return promptGenerator() 
     } else if (passwordLength >= 8 || passwordLength <= 128) {
         window.alert("Your password will have " + passwordLength + " characters.");
-        console.log(passwordLength);
+        console.log("passwordLength is " + passwordLength);
     } else {
         window.alert("Your password needs to be between 8 and 128 characters. Try again.")
         return promptGenerator()
@@ -28,9 +28,10 @@ var promptGenerator = function() {
       var promptConfirm = window.prompt("Would you like to include " + promptInfo[i] + " characters in your password?");
         if (promptConfirm === "yes" || promptConfirm === "Yes" || promptConfirm === "YES") {
           window.alert("Your password WILL contain " + promptInfo[i] + " characters.");
-          console.log(promptConfirm);
+          console.log("Password WILL contain " + promptInfo[i] + " characters.");
         } else if (promptConfirm === "no" || promptConfirm === "No" || promptConfirm === "NO") {
           window.alert("Your password WILL NOT contain " + promptInfo[i] + " characters.");
+          console.log("Password WILL NOT contain " + promptInfo[i] + " characters.");
         } else {
           window.alert("You must choose YES or NO. Try again.");
           return promptGenerator();
@@ -40,72 +41,10 @@ var promptGenerator = function() {
  
 
 
-
-// PASSWORD PROMPTS STARTS HERE
 // Connect HTML button with JS and 
 document.querySelector("#generate").addEventListener('click', promptGenerator);
 
-
-// Start generating the password
-function generatePassword() {
-  var passwordLength = window.prompt("How long would you like your password to be? (min 8 characters, max 128.");
-    if (passwordLength === "" || passwordLength === null) {
-      window.alert("Your password needs to be between 8 and 128 characters. Try again.")
-      return generatePassword()  
-    } else if (passwordLength < 8 || passwordLength > 128) {
-      window.alert("Your password needs to be between 8 and 128 characters. Try again.")
-      return generatePassword() 
-    } else if (passwordLength >= 8 || passwordLength <= 128) {
-        window.alert("Your password will have " + passwordLength + " characters.");
-        console.log(passwordLength);
-    } else {
-        window.alert("Your password needs to be between 8 and 128 characters. Try again.")
-        return generatePassword()
-      };
-  var passwordLowercase = window.prompt("Would you like to include lowercase characters in your password? Choose Yes or No.");
-    if (passwordLowercase === "yes" || passwordLowercase === "Yes" || passwordLowercase === "YES") {
-      window.alert("Your password WILL contain lowercase characters.");
-      console.log(passwordLowercase);
-    } else if (passwordLowercase === "no" || passwordLowercase === "No" || passwordLowercase === "NO") {
-      window.alert("Your password WILL NOT contain lowercase characters.");
-    } else {
-      window.alert("You must choose YES or NO. Try again.");
-      return generatePassword();
-    };
-  var passwordUppercase = window.prompt("Would you like to include UPPERCASE characters in your password? Choose Yes or No.");
-    if (passwordUppercase === "yes" || passwordUppercase === "Yes" || passwordUppercase === "YES") {
-      window.alert("Your password WILL contain UPPERCASE characters.");
-      console.log(passwordUppercase);
-    } else if (passwordUppercase === "no" || passwordUppercase === "No" || passwordUppercase === "NO") {
-      window.alert("Your password WILL NOT contain UPPERCASE characters.");
-    } else {
-      window.alert("You must choose YES or NO. Try again.");
-      return generatePassword();
-    };
-  var passwordNumeric = window.prompt("Would you like to include numeric characters in your password? Choose Yes or No.");
-    if (passwordNumeric === "yes" || passwordNumeric === "Yes" || passwordNumeric === "YES") {
-      window.alert("Your password WILL contain numeric characters.");
-      console.log(passwordNumeric);
-    } else if (passwordNumeric === "no" || passwordNumeric === "No" || passwordNumeric === "NO") {
-      window.alert("Your password WILL NOT contain numeric characters.");
-    } else {
-      window.alert("You must choose YES or NO. Try again.");
-      return generatePassword();
-    };
-  var passwordSpecial = window.prompt("Would you like to include special characters in your password? Choose Yes or No.");
-    if (passwordSpecial === "yes" || passwordSpecial === "Yes" || passwordSpecial === "YES") {
-      window.alert("Your password WILL contain special characters.");
-      console.log(passwordSpecial);
-    } else if (passwordSpecial === "no" || passwordSpecial === "No" || passwordSpecial === "NO") {
-      window.alert("Your password WILL NOT contain special characters.");
-    } else {
-      window.alert("You must choose YES or NO. Try again.");
-      return generatePassword();
-    };
-};
-
 // Calculate password
-
 
 
 // function writePassword
