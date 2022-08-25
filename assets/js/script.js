@@ -3,10 +3,47 @@
 // function to generate a random password 
 //function to set password length
 
+// VARIABLES FOR THE GENERATOR. Placed in an array
+var promptInfo = ["lowercase", "uppercase", "numeric", "special"];
+
+
+var promptGenerator = function() {
+  // Define password length
+  var passwordLength = window.prompt("How long would you like your password to be? (min 8 characters, max 128.");
+    if (passwordLength === "" || passwordLength === null) {
+      window.alert("Your password needs to be between 8 and 128 characters. Try again.")
+      return promptGenerator()  
+    } else if (passwordLength < 8 || passwordLength > 128) {
+      window.alert("Your password needs to be between 8 and 128 characters. Try again.")
+      return promptGenerator() 
+    } else if (passwordLength >= 8 || passwordLength <= 128) {
+        window.alert("Your password will have " + passwordLength + " characters.");
+        console.log(passwordLength);
+    } else {
+        window.alert("Your password needs to be between 8 and 128 characters. Try again.")
+        return promptGenerator()
+    };
+    // Loop through lowercase, uppercase, numeric, and special characters.
+    for (var i = 0; i < promptInfo.length; i++) {
+      var promptConfirm = window.prompt("Would you like to include " + promptInfo[i] + " characters in your password?");
+        if (promptConfirm === "yes" || promptConfirm === "Yes" || promptConfirm === "YES") {
+          window.alert("Your password WILL contain " + promptInfo[i] + " characters.");
+          console.log(promptConfirm);
+        } else if (promptConfirm === "no" || promptConfirm === "No" || promptConfirm === "NO") {
+          window.alert("Your password WILL NOT contain " + promptInfo[i] + " characters.");
+        } else {
+          window.alert("You must choose YES or NO. Try again.");
+          return promptGenerator();
+        };
+    };
+};
+ 
+
+
 
 // PASSWORD PROMPTS STARTS HERE
 // Connect HTML button with JS and 
-document.querySelector("#generate").addEventListener('click', generatePassword);
+document.querySelector("#generate").addEventListener('click', promptGenerator);
 
 
 // Start generating the password
@@ -25,7 +62,7 @@ function generatePassword() {
         window.alert("Your password needs to be between 8 and 128 characters. Try again.")
         return generatePassword()
       };
-  var passwordLowercase = window.prompt("Would you like to include lowercase characters in your password?");
+  var passwordLowercase = window.prompt("Would you like to include lowercase characters in your password? Choose Yes or No.");
     if (passwordLowercase === "yes" || passwordLowercase === "Yes" || passwordLowercase === "YES") {
       window.alert("Your password WILL contain lowercase characters.");
       console.log(passwordLowercase);
@@ -35,7 +72,7 @@ function generatePassword() {
       window.alert("You must choose YES or NO. Try again.");
       return generatePassword();
     };
-  var passwordUppercase = window.prompt("Would you like to include UPPERCASE characters in your password?");
+  var passwordUppercase = window.prompt("Would you like to include UPPERCASE characters in your password? Choose Yes or No.");
     if (passwordUppercase === "yes" || passwordUppercase === "Yes" || passwordUppercase === "YES") {
       window.alert("Your password WILL contain UPPERCASE characters.");
       console.log(passwordUppercase);
@@ -45,7 +82,7 @@ function generatePassword() {
       window.alert("You must choose YES or NO. Try again.");
       return generatePassword();
     };
-  var passwordNumeric = window.prompt("Would you like to include numeric characters in your password?");
+  var passwordNumeric = window.prompt("Would you like to include numeric characters in your password? Choose Yes or No.");
     if (passwordNumeric === "yes" || passwordNumeric === "Yes" || passwordNumeric === "YES") {
       window.alert("Your password WILL contain numeric characters.");
       console.log(passwordNumeric);
@@ -55,7 +92,7 @@ function generatePassword() {
       window.alert("You must choose YES or NO. Try again.");
       return generatePassword();
     };
-  var passwordSpecial = window.prompt("Would you like to include special characters in your password?");
+  var passwordSpecial = window.prompt("Would you like to include special characters in your password? Choose Yes or No.");
     if (passwordSpecial === "yes" || passwordSpecial === "Yes" || passwordSpecial === "YES") {
       window.alert("Your password WILL contain special characters.");
       console.log(passwordSpecial);
