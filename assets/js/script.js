@@ -1,7 +1,18 @@
 // Assignment code here
 
-// when generate password button is clicked, then series of PROMPTS
-//start loop
+// function to generate a random password 
+// var passwordLength = answer from prompt
+
+
+// PASSWORD PROMPTS STARTS HERE
+// Connect HTML button with JS and 
+document.querySelector('#generate').addEventListener('click', generatePassword);
+
+// Add event listener to generate prompt
+function generatePassword() {
+  window.prompt("test!");
+};
+
 
 // prompts on screen - ask for length, lowercase, uppercase, numeric, special characters
 // data is always validated
