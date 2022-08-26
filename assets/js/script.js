@@ -1,7 +1,7 @@
 // Assignment code here
 
 // Static values for the password
-// .split method will break the string value into substrings without having to split the letters manually
+//split method will break the string value into substrings without having to split the letters manually
 var lowercase = "abcdefghijklmnopqrstuvwxyz";
 var lowercaseArr = lowercase.split("");
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -17,7 +17,7 @@ var generateBtn = document.querySelector("#generate");
 // Connect HTML button with JS 
 document.querySelector("#generate").addEventListener('click', generatePassword);
 
-// Main function
+// Main function that will generate password
 var generatePassword = function() {	
   // Define password length	
   var getPasswordLength = window.prompt("How long would you like your password to be? (min 8 characters, max 128.");	
@@ -52,6 +52,7 @@ var generatePassword = function() {
     } else {
       window.alert("Your password WILL NOT contain lowercase characters.");
     };
+    //repeat same question for rest of questions. Maybe future loop?
   var confirmUppercase = window.confirm("Would you like to include UPPERCASE characters in your password?");
     if (confirmUppercase) {
       window.alert("Your password WILL contain UPPERCASE characters.");
@@ -75,14 +76,16 @@ var generatePassword = function() {
     };
     console.log(charContainer);
 
-  // restart process if all for character options have been denied
+  // restart process if all character options have been denied
   if (!confirmLowercase && !confirmUppercase && !confirmNumeric && !confirmSpecial) {
     window.alert("You must include at least one (1) type of character in your password. Try again.")
     return promptGenerator();
-  // There might be a way to make this a loop in the future
+  // Continue generating password with for loop that intakes user preferences. 
+  // For loop that is repeated as many times as characters are needed for the password.
   } else {
-  // .join reverses the effects of the method split - it will give the user one singular string value.
+  // join reverses the effects of the method split - it will give the user one singular string value.
     window.alert("Your password will be " + passwordLength + " and will contain some of the next characters: " + charContainer.join("") + ".");
+    // Password is a string value
     var password = "";
     for (var i = 0; i < passwordLength; i++) {
       // Math random generates a random number in the range of 0 to less than 1. 
@@ -95,10 +98,8 @@ var generatePassword = function() {
     };
     return password;
   };
-  // Calculate password with a for loop that is repeated as many times as characters are needed for the password.
-  // password should be a string
-};
 
+};
 
 // Display password on screen
 function writePassword() {
@@ -112,4 +113,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
