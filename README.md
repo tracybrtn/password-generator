@@ -1,7 +1,8 @@
 # password-generator
-(screenshot)
+![Final version of website](https://github.com/tracybrtn/password-generator/blob/c992ae23af7907e2f02c5df4b0ebceda79864ae0/assets/images/password-generator-live-site.png)
+
 ## Purpose
-Creating strong passwords for users looking to secure sensitive data
+An application to create strong passwords for users looking to secure data
 
 ### User Story
 - GIVEN I need a new, secure password
@@ -19,11 +20,13 @@ Creating strong passwords for users looking to secure sensitive data
 		- THEN a password is generated that matches the selected criteria
 	- WHEN the password is generated
 		- THEN the password is either displayed in an alert or written to the page
-### Work flow and branches
 ## Built With
 - HTML
 - CSS
 - JavaScript
+
 ## Website
-(link)
+https://tracybrtn.github.io/password-generator/
+
 ## Contribution
+Made by @tracybrtn
